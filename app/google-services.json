@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "598055524383",
+    "project_id": "my-tasks-final-project",
+    "storage_bucket": "my-tasks-final-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:598055524383:android:bf3c35280d78d7ddf71d2a",
+        "android_client_info": {
+          "package_name": "com.macedos.mytasksfinalproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "598055524383-vvjehgl5cvmik6p2obs7i0l73sl1euba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6aNs2vvGxUembBH41xWelc0ekVqgCKjA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "598055524383-vvjehgl5cvmik6p2obs7i0l73sl1euba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,35 @@
+<resources>
+    <!-- Tab Action -->
+    <string name="todo_tabbar">A fazer</string>
+    <string name="in_progress_tabbar">Em progresso</string>
+    <string name="done_tabbar">Feitas</string>
+
+    <!-- Screen Titles - Subtitles - Descriptions Fields - Info Fields -->
+    <string name="app_name">Minhas Tarefas</string>
+    <string name="title_add_task_screen">Nova tarefa</string>
+    <string name="title_in_task_screen">Título da tarefa</string>
+    <string name="title_edit_task_screen">Editar tarefa</string>
+    <string name="subttitle_add_task_screen">Adicione uma tarefa que ainda será feita</string>
+    <string name="subtitle_edit_task_screen">Altere dados de uma tarefa existente</string>
+    <string name="description_in_task_screen">Descrição da tarefa</string>
+    <string name="search_tasks_todos">Pesquise por tarefas a serem feitas</string>
+
+    <!-- Screen Messages and Interactions-->
+    <string name="message_nothings_here">Opa…Não há nada aqui!</string>
+    <string name="message_things_todo">Mas aposto que você possui muita coisa para fazer.</string>
+    <string name="message_starts_list">Comece sua lista!</string>
+    <string name="optional">Opcional</string>
+
+    <!-- Descriptions Icons and Images -->
+    <string name="description_icon_arrow">icone retorno da pagina</string>
+    <string name="description_icon_line">icone divisor do titulo</string>
+    <string name="description_image_void_screen">image void screen</string>
+
+    <!-- Buttons -->
+    <string name="button_save_tasks">Salvar</string>
+    <string name="button_add_tasks">Adicionar</string>
+    <string name="button_start_tasks">Iniciar tarefa</string>
+    <string name="button_delete_tasks">Excluir tarefa</string>
+
+
+</resources>
