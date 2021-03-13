@@ -16,8 +16,9 @@
 
     <!-- Screen Messages and Interactions-->
     <string name="message_nothings_here">Opa…Não há nada aqui!</string>
-    <string name="message_things_todo">Mas aposto que você possui muita coisa para fazer.</string>
-    <string name="message_starts_list">Comece sua lista!</string>
+    <string name="message_things_todo">Mas aposto que você possui muita coisa para fazer.\nComece sua lista! </string>
+    <string name="message_things_in_progress">Que tal iniciar alguma tarefa da sua lista?</string>
+    <string name="message_things_done">Acredito no seu potencial de terminar uma tarefa hoje.</string>
     <string name="optional">Opcional</string>
 
     <!-- Descriptions Icons and Images -->
@@ -30,6 +31,4 @@
     <string name="button_add_tasks">Adicionar</string>
     <string name="button_start_tasks">Iniciar tarefa</string>
     <string name="button_delete_tasks">Excluir tarefa</string>
-
-
 </resources>

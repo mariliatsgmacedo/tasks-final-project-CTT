@@ -25,10 +25,14 @@ class TaskAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = tasksList[position].toString()
-        holder.description.text = tasksList[position].toString()
-        holder.contentCard.isCheckable
-        holder.contentCard.isFocusable
+        holder.title.text = tasksList[position].title
+        holder.description.text = tasksList[position].description
+        holder.contentCard.isCheckable = true
+        holder.contentCard.isFocusable = true
+
+        holder.contentCard.setOnClickListener {
+            myListener.onClick(tasksList[position])
+        }
     }
 
     override fun getItemCount(): Int {

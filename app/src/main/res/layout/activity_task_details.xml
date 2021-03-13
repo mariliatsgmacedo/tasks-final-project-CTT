@@ -1,107 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:layout_marginHorizontal="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-
-    <RelativeLayout
-        android:id="@+id/relative_layout_details"
+<layout>
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center|start"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <TextView
-            android:id="@+id/title_task_screen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Estudar bastante POO"
-            android:textSize="24sp" />
-
-        <TextView
-            android:id="@+id/subtitle_screen_details"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="A fazer"
-            android:layout_below="@id/title_task_screen"/>
-
-        <ImageView
-            android:id="@+id/arrow_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_editar"
-            android:layout_marginTop="14dp"
-            android:layout_toRightOf="@id/div_line"
-            android:contentDescription="@string/description_icon_arrow"
-            android:layout_toEndOf="@id/div_line" />
-
-        <ImageView
-            android:id="@+id/div_line"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/linha_3"
-            android:layout_marginHorizontal="24dp"
-            android:layout_toRightOf="@id/title_task_screen"
-            android:contentDescription="@string/description_icon_line"
-            android:layout_toEndOf="@id/title_task_screen" />
-
-    </RelativeLayout>
-
-    <TextView
-        android:id="@+id/text_field_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:text="dajskdnsjad daskdjasidjiasd dajsdjsadjas jdsadjasdjas jdsakdjsakdjsad jadksdjas dasjd aksdjas dsakjdksaldjas jdkasjdkasdjas alskjdkasdjaskldj kasjdkasldjaskldjaskd lasjdklsajdas klasjdklasjds ajdkasdj askdj asdkj akasjd askdjas kdasjdksajdas açsdjaskdwjikldasl asdjoaldadj aklsdasdjaklsdja iawjdiohasdk ioasjdoiashdakl"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/relative_layout_details"/>
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/linear_in_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <Button
-            android:id="@+id/button_delete_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:textColor="@color/button_and_action_color"
-            android:contentDescription="@string/button_add_tasks"
-            android:text="@string/button_delete_tasks"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:icon="@drawable/ic_excluir"
-            app:iconTint = "@color/button_and_action_color"
-            app:iconPadding="16dp"
-            style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
-
-        <Button
-            android:id="@+id/button_start"
+        <RelativeLayout
+            android:id="@+id/relative_layout_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:textColor="@color/white"
-            android:contentDescription="@string/button_add_tasks"
-            android:text="@string/button_start_tasks"
-            android:gravity="center"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="24dp"
+            android:gravity="center|start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title_task_screen"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estudar bastante POO"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/subtitle_screen_details"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A fazer"
+                android:layout_below="@id/title_task_screen"/>
+
+            <ImageView
+                android:id="@+id/arrow_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_editar"
+                android:layout_marginTop="14dp"
+                android:layout_toRightOf="@id/div_line"
+                android:contentDescription="@string/description_icon_arrow"
+                android:layout_toEndOf="@id/div_line" />
+
+            <ImageView
+                android:id="@+id/div_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/linha_3"
+                android:layout_marginHorizontal="24dp"
+                android:layout_toRightOf="@id/title_task_screen"
+                android:contentDescription="@string/description_icon_line"
+                android:layout_toEndOf="@id/title_task_screen" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/text_field_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:text="dajskdnsjad daskdjasidjiasd dajsdjsadjas jdsadjasdjas jdsakdjsakdjsad jadksdjas dasjd aksdjas dsakjdksaldjas jdkasjdkasdjas alskjdkasdjaskldj kasjdkasldjaskldjaskd lasjdklsajdas klasjdklasjds ajdkasdj askdj asdkj akasjd askdjas kdasjdksajdas açsdjaskdwjikldasl asdjoaldadj aklsdasdjaklsdja iawjdiohasdk ioasjdoiashdakl"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:backgroundTint="@color/button_and_action_color"/>
+            app:layout_constraintTop_toBottomOf="@id/relative_layout_details"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/linear_in_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/button_delete_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/button_and_action_color"
+                android:contentDescription="@string/button_add_tasks"
+                android:text="@string/button_delete_tasks"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:icon="@drawable/ic_excluir"
+                app:iconTint = "@color/button_and_action_color"
+                app:iconPadding="16dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.Icon"/>
+
+            <Button
+                android:id="@+id/button_start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:textColor="@color/white"
+                android:contentDescription="@string/button_add_tasks"
+                android:text="@string/button_start_tasks"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:backgroundTint="@color/button_and_action_color"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -11,7 +11,7 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linear_layout_tab"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:background="@drawable/shape_tabbar"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
                 <com.google.android.material.tabs.TabLayout
                     android:id="@+id/tab_layout"
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
+                    android:layout_height="50dp"
                     android:background="@drawable/shape_in_tabbar"
                     android:layout_marginHorizontal="12dp"
                     android:layout_gravity="center">
@@ -49,7 +49,41 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <androidx.viewpager.widget.ViewPager
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/linear_layout_search"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/shape_tabbar"
+                android:orientation="horizontal"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/linear_layout_tab"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:background="@drawable/shape_in_tabbar"
+                    android:layout_marginHorizontal="24dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_baseline_search_24"/>
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/search_tasks_todos"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp" />
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/my_view_pager"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
