@@ -11,6 +11,7 @@ import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.data.AppDataBase
 import com.macedos.mytasksfinalproject.data.model.Task
+import com.macedos.mytasksfinalproject.data.repository.TaskRepository
 import com.macedos.mytasksfinalproject.databinding.ActivityMainBinding
 import com.macedos.mytasksfinalproject.ui.base.BaseActivity
 import com.macedos.mytasksfinalproject.utils.MyViewPagerAdapter
@@ -29,9 +30,11 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>() {
         // Obtain the FirebaseAnalytics instance
         firebaseAnalytics = Firebase.analytics
 
-//
-//       val  db = AppDataBase.getDatabase()
-//        db.getTaskDao().findByStatus(Task.DONE)
+
+//       val respo = TaskRepository()
+//        respo.insert(
+//            Task(1,"Teste Title", "Descrição suceeeesssss",Task.TODO)
+//        )
 
         //TabLayout Configuration
         val tabLayout = binding.tabLayout

@@ -25,12 +25,27 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
         adapter = TaskAdapter(this)
         binding.myRecyclerView.adapter = adapter
         viewModel.getAllTasks().observe(viewLifecycleOwner){ results ->
-            val list = results.filter {
-                it.status == status
-            }
-            adapter.setAllTasks(list)
+            updateListFiltered(results)
         }
 
+        viewModel.taskList.observe(viewLifecycleOwner){
+            adapter.setAllTasks(it)
+        }
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getAllTasks().value?.let {
+            updateListFiltered(it)
+        }
+    }
+
+    private fun updateListFiltered(results: List<Task>) {
+        val list = results.filter {
+            it.status == status
+        }
+        viewModel.taskList.value = list
     }
 
     private fun configureView(){
