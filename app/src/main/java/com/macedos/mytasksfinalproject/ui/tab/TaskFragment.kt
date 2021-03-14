@@ -17,6 +17,7 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureView()
+        
     }
 
     private fun configureView(){
