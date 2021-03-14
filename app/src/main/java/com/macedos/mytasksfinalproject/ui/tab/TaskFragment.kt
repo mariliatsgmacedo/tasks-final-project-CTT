@@ -6,9 +6,13 @@ import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.data.model.Task
 import com.macedos.mytasksfinalproject.databinding.FragmentTaskBinding
+import com.macedos.mytasksfinalproject.ui.adapter.TaskAdapter
 import com.macedos.mytasksfinalproject.ui.base.BaseFragment
+import com.macedos.mytasksfinalproject.utils.MyViewPagerAdapter
 
-class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,TaskViewModel>(){
+class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,TaskViewModel>(),TaskAdapter.TaskAdapterListener{
+
+    private lateinit var adapter: TaskAdapter
 
     override fun setViewConfiguration(): Triple<Int, Int, Class<TaskViewModel>> {
         return Triple(R.layout.fragment_task,BR.viewModel,TaskViewModel::class.java)
@@ -17,7 +21,16 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         configureView()
-        
+
+        adapter = TaskAdapter(this)
+        binding.myRecyclerView.adapter = adapter
+        viewModel.getAllTasks().observe(viewLifecycleOwner){ results ->
+            val list = results.filter {
+                it.status == status
+            }
+            adapter.setAllTasks(list)
+        }
+
     }
 
     private fun configureView(){
@@ -33,6 +46,10 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
                 binding.emptyMessage.text = getString(R.string.message_things_done)
             }
         }
+
+    }
+
+    override fun onClick(item: Task) {
 
     }
 

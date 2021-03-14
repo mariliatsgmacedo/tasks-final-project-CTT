@@ -10,17 +10,19 @@ import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.data.model.Task
 
 class TaskAdapter(
-        var tasksList: ArrayList<Task>,
-        private var myListener: TaskAdapterListener) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
+    private var myListener: TaskAdapterListener
+) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
-    class ViewHolder(view: View): RecyclerView.ViewHolder(view){
+    private var tasksList: List<Task> = listOf()
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_task_item)
         val description: TextView = view.findViewById(R.id.description_task_item)
         val contentCard: MaterialCardView = view.findViewById(R.id.my_card)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_task,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_task, parent, false)
         return ViewHolder(view)
     }
 
@@ -39,7 +41,12 @@ class TaskAdapter(
         return tasksList.size
     }
 
-    interface TaskAdapterListener{
+    interface TaskAdapterListener {
         fun onClick(item: Task)
+    }
+
+    fun setAllTasks(tasksList: List<Task>){
+        this.tasksList = tasksList
+        notifyDataSetChanged()
     }
 }
