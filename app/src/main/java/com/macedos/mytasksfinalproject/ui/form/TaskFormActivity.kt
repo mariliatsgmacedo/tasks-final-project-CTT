@@ -1,18 +1,15 @@
 package com.macedos.mytasksfinalproject.ui.form
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+
+import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.databinding.ActivityTaskFormBinding
+import com.macedos.mytasksfinalproject.ui.base.BaseActivity
 
-class TaskFormActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityTaskFormBinding
+class TaskFormActivity: BaseActivity<ActivityTaskFormBinding, TaskFormViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_task_form)
-
-
+    override fun setViewConfiguration(): Triple<Int, Int, Class<TaskFormViewModel>> {
+        return Triple(R.layout.activity_task_details, BR.viewModel,TaskFormViewModel::class.java)
     }
+
 }

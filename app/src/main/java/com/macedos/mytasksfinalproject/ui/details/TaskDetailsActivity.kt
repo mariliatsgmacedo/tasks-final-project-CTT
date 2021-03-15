@@ -1,17 +1,13 @@
 package com.macedos.mytasksfinalproject.ui.details
 
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
+import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.databinding.ActivityTaskDetailsBinding
+import com.macedos.mytasksfinalproject.ui.base.BaseActivity
 
-class TaskDetailsActivity: AppCompatActivity() {
-    private lateinit var binding: ActivityTaskDetailsBinding
+class TaskDetailsActivity: BaseActivity<ActivityTaskDetailsBinding,TaskDetailsViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_task_details)
-
+    override fun setViewConfiguration(): Triple<Int, Int, Class<TaskDetailsViewModel>> {
+        return Triple(R.layout.activity_task_details, BR.viewModel,TaskDetailsViewModel::class.java)
     }
 }
