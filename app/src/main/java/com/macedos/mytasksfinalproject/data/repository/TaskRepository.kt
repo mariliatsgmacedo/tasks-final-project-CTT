@@ -38,5 +38,10 @@ class TaskRepository {
             taskDao.delete(task)
         }
     }
+    fun update(task: Task){
+        executorService.execute {
+            taskDao.update(task)
+        }
+    }
 
 }

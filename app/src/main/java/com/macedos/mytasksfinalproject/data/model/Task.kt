@@ -7,10 +7,10 @@ import java.io.Serializable
 @Entity
 data class Task(
         @PrimaryKey(autoGenerate = true)
-        val id: Int,
+        val id: Int?=null,
         var title: String,
         var description: String,
-        var status: Int
+        var status: Int = TODO
 ) : Serializable {
 
     companion object {

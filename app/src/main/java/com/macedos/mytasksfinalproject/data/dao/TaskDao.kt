@@ -1,10 +1,7 @@
 package com.macedos.mytasksfinalproject.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.macedos.mytasksfinalproject.data.model.Task
 
 @Dao
@@ -18,6 +15,9 @@ abstract class TaskDao {
 
     @Delete
     abstract fun delete(task: Task)
+
+    @Update
+    abstract fun update(task: Task)
 
 
 }

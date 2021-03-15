@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
+    <data>
+        <variable
+            name="viewModel"
+            type="com.macedos.mytasksfinalproject.ui.form.TaskFormViewModel" />
+    </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -68,6 +73,7 @@
                 android:id="@+id/input_text_field"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:text="@={viewModel.title}"
                 android:hint="@string/title_in_task_screen"/>
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -88,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
                 android:inputType="textWebEditText"
+                android:text="@={viewModel.description}"
                 android:hint="@string/description_in_task_screen"
                 />
 
@@ -109,6 +116,7 @@
             android:textColor="@color/white"
             android:text="@string/button_save_tasks"
             android:gravity="center"
+            android:enabled="@{viewModel.formValid}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

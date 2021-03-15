@@ -1,5 +1,6 @@
 package com.macedos.mytasksfinalproject.ui.tab
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.macedos.mytasksfinalproject.BR
@@ -8,6 +9,7 @@ import com.macedos.mytasksfinalproject.data.model.Task
 import com.macedos.mytasksfinalproject.databinding.FragmentTaskBinding
 import com.macedos.mytasksfinalproject.ui.adapter.TaskAdapter
 import com.macedos.mytasksfinalproject.ui.base.BaseFragment
+import com.macedos.mytasksfinalproject.ui.form.TaskFormActivity
 import com.macedos.mytasksfinalproject.utils.MyViewPagerAdapter
 
 class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,TaskViewModel>(),TaskAdapter.TaskAdapterListener{
@@ -30,6 +32,10 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
 
         viewModel.taskList.observe(viewLifecycleOwner){
             adapter.setAllTasks(it)
+        }
+
+        binding.buttonAdd.setOnClickListener {
+            startFormActivity()
         }
 
     }
@@ -66,6 +72,11 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
 
     override fun onClick(item: Task) {
 
+    }
+
+    private fun startFormActivity(){
+        val intent = Intent(requireContext(),TaskFormActivity::class.java)
+        startActivity(intent)
     }
 
 }
