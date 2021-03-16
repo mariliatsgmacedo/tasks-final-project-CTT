@@ -6,11 +6,11 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.macedos.mytasksfinalproject.data.model.Task
 import com.macedos.mytasksfinalproject.ui.tab.TaskFragment
 
-class MyViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
+class MyViewPagerAdapter(fa: FragmentActivity, listener:  TaskFragment.TaskFragmentListener) : FragmentStateAdapter(fa) {
     private val mList: ArrayList<Fragment> = arrayListOf(
-        TaskFragment(Task.TODO),
-        TaskFragment(Task.IN_PROGRESS),
-        TaskFragment(Task.DONE)
+        TaskFragment(Task.TODO, listener),
+        TaskFragment(Task.IN_PROGRESS, listener),
+        TaskFragment(Task.DONE, listener)
     )
 
     override fun getItemCount(): Int {
@@ -18,6 +18,10 @@ class MyViewPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     }
 
     override fun createFragment(position: Int): Fragment {
+        return mList[position]
+    }
+
+    fun getItem(position: Int): Fragment {
         return mList[position]
     }
 

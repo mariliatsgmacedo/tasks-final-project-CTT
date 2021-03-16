@@ -3,6 +3,7 @@ package com.macedos.mytasksfinalproject.ui.tab
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.config.AppConstants
@@ -12,11 +13,17 @@ import com.macedos.mytasksfinalproject.ui.adapter.TaskAdapter
 import com.macedos.mytasksfinalproject.ui.base.BaseFragment
 import com.macedos.mytasksfinalproject.ui.details.TaskDetailsActivity
 import com.macedos.mytasksfinalproject.ui.form.TaskFormActivity
-import com.macedos.mytasksfinalproject.utils.MyViewPagerAdapter
 
-class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,TaskViewModel>(),TaskAdapter.TaskAdapterListener{
+class TaskFragment(private val status: Int, var listener: TaskFragmentListener): BaseFragment<FragmentTaskBinding,TaskViewModel>(),TaskAdapter.TaskAdapterListener{
 
     private lateinit var adapter: TaskAdapter
+    private val observerMain = Observer<List<Task>> {
+        updateListFiltered(it)
+    }
+    private val observerFilteredList = Observer<List<Task>> {
+        adapter.setAllTasks(it)
+        binding.loading.visibility = View.GONE
+    }
 
     override fun setViewConfiguration(): Triple<Int, Int, Class<TaskViewModel>> {
         return Triple(R.layout.fragment_task,BR.viewModel,TaskViewModel::class.java)
@@ -28,13 +35,6 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
 
         adapter = TaskAdapter(this)
         binding.myRecyclerView.adapter = adapter
-        viewModel.getAllTasks().observe(viewLifecycleOwner){ results ->
-            updateListFiltered(results)
-        }
-
-        viewModel.taskList.observe(viewLifecycleOwner){
-            adapter.setAllTasks(it)
-        }
 
         binding.buttonAdd.setOnClickListener {
             startFormActivity()
@@ -44,10 +44,18 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
 
     override fun onResume() {
         super.onResume()
-        viewModel.taskList.value = listOf()
+        binding.loading.visibility = View.VISIBLE
+        viewModel.getAllTasks().observe(viewLifecycleOwner,observerMain)
+        viewModel.taskList.observe(viewLifecycleOwner, observerFilteredList)
         viewModel.getAllTasks().value?.let {
             updateListFiltered(it)
         }
+    }
+
+    override fun onPause() {
+        viewModel.taskList.removeObserver(observerFilteredList)
+        viewModel.getAllTasks().removeObserver(observerMain)
+        super.onPause()
     }
 
 
@@ -56,6 +64,9 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
         val list = results.filter {
             it.status == status
         }
+
+        listener.showFilter(list.isNotEmpty(), status)
+
         viewModel.taskList.value = list
     }
 
@@ -89,6 +100,16 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
         val intent = Intent(requireContext(), TaskDetailsActivity::class.java)
         intent.putExtra(AppConstants.KEY_TASK,task)
         startActivity(intent)
+    }
+
+
+    fun setFilter(query:String){
+        adapter.query = query
+        adapter.executeFilter()
+    }
+
+    interface TaskFragmentListener{
+        fun showFilter(show: Boolean, status: Int)
     }
 
 }

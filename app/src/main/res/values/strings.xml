@@ -33,4 +33,6 @@
     <string name="button_delete_tasks">Excluir tarefa</string>
     <string name="todo">A fazer</string>
     <string name="finish_task">Finalizar tarefa</string>
+    <string name="search_tasks_in_progress">Pesquise por tarefas em progresso</string>
+    <string name="search_tasks_done">Pesquise por tarefas feitas</string>
 </resources>

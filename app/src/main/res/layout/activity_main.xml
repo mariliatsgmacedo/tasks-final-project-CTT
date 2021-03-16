@@ -11,9 +11,10 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linear_layout_tab"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/shape_tabbar"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:paddingVertical="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -47,24 +48,12 @@
 
                 </com.google.android.material.tabs.TabLayout>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/linear_layout_search"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/shape_tabbar"
-                android:orientation="horizontal"
-                android:gravity="center"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linear_layout_tab"
-                android:visibility="gone">
-
                 <androidx.appcompat.widget.LinearLayoutCompat
+                    android:id="@+id/content_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
+                    android:layout_marginTop="16dp"
                     android:background="@drawable/shape_in_tabbar"
                     android:layout_marginHorizontal="24dp">
 
@@ -74,6 +63,7 @@
                         android:src="@drawable/ic_baseline_search_24"/>
 
                     <EditText
+                        android:id="@+id/search_field"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/search_tasks_todos"
@@ -82,6 +72,8 @@
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/my_view_pager"

@@ -14,6 +14,9 @@ class TaskAdapter(
 ) : RecyclerView.Adapter<TaskAdapter.ViewHolder>() {
 
     private var tasksList: List<Task> = listOf()
+    private var filtered: ArrayList<Task> = arrayListOf()
+    var query: String = ""
+
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val title: TextView = view.findViewById(R.id.title_task_item)
@@ -27,18 +30,18 @@ class TaskAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = tasksList[position].title
-        holder.description.text = tasksList[position].description
+        holder.title.text = filtered[position].title
+        holder.description.text = filtered[position].description
         holder.contentCard.isCheckable = true
         holder.contentCard.isFocusable = true
 
         holder.contentCard.setOnClickListener {
-            myListener.onClick(tasksList[position])
+            myListener.onClick(filtered[position])
         }
     }
 
     override fun getItemCount(): Int {
-        return tasksList.size
+        return filtered.size
     }
 
     interface TaskAdapterListener {
@@ -47,6 +50,19 @@ class TaskAdapter(
 
     fun setAllTasks(tasksList: List<Task>){
         this.tasksList = tasksList
+
+        executeFilter()
+    }
+
+    fun executeFilter(){
+        this.filtered.clear()
+        if (query.trim().isEmpty()){
+            this.filtered.addAll(tasksList)
+        } else{
+            this.filtered.addAll( tasksList.filter {
+                it.title.indexOf(query) != -1 || it.description.indexOf(query) != -1
+            })
+        }
         notifyDataSetChanged()
     }
 }
