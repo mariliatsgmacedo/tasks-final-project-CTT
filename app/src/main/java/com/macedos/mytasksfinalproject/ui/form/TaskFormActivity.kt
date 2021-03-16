@@ -3,6 +3,7 @@ package com.macedos.mytasksfinalproject.ui.form
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
 import com.macedos.mytasksfinalproject.config.AppConstants
@@ -26,30 +27,43 @@ class TaskFormActivity : BaseActivity<ActivityTaskFormBinding, TaskFormViewModel
             viewModel.title.value = it.title
             viewModel.description.value = it.description
 
-            viewModel.title.observe(this){ value ->
+            viewModel.title.observe(this) { value ->
                 it.title = value
             }
-            viewModel.description.observe(this){ value ->
+            viewModel.description.observe(this) { value ->
                 it.description = value
             }
 
         }
 
-        binding.arrowBack.setOnClickListener {
-            onBackPressed()
-        }
+//        binding.arrowBack.setOnClickListener {
+//            onBackPressed()
+//        }
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.buttonAdd.setOnClickListener {
             task?.let {
                 viewModel.updateTask(it)
                 val intent = Intent()
-                intent.putExtra(AppConstants.KEY_TASK,it)
-                setResult(1,intent)
+                intent.putExtra(AppConstants.KEY_TASK, it)
+                setResult(1, intent)
             } ?: run {
                 viewModel.taskSave()
             }
             finish()
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val intent = Intent()
+                intent.putExtra("task", task)
+                setResult(1, intent)
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 }

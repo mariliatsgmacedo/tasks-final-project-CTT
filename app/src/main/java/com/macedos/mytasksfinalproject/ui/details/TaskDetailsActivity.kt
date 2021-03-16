@@ -2,6 +2,7 @@ package com.macedos.mytasksfinalproject.ui.details
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
@@ -43,6 +44,20 @@ class TaskDetailsActivity : BaseActivity<ActivityTaskDetailsBinding, TaskDetails
             updateTask()
         }
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                val intent = Intent()
+                intent.putExtra("task", task)
+                setResult(1, intent)
+                onBackPressed()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

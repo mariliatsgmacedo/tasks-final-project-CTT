@@ -20,40 +20,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <ImageView
-                android:id="@+id/arrow_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_arrow_back_24px"
-                android:layout_marginTop="14dp"
-                android:contentDescription="@string/description_icon_arrow"/>
-
-            <ImageView
-                android:id="@+id/div_line"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/linha_3"
-                android:layout_marginHorizontal="16dp"
-                android:layout_toEndOf="@id/arrow_back"
-                android:layout_toRightOf="@id/arrow_back"
-                android:contentDescription="@string/description_icon_line"/>
 
             <TextView
                 android:id="@+id/edit_task_screen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_edit_task_screen"
-                android:textSize="24sp"
-                android:layout_toEndOf="@id/div_line"
-                android:layout_toRightOf="@id/div_line" />
+                android:textSize="24sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/subtitle_edit_task_screen"
                 android:layout_below="@id/edit_task_screen"
-                android:layout_toEndOf="@id/div_line"
-                android:layout_toRightOf="@id/div_line" />
+                 />
 
         </RelativeLayout>
 
