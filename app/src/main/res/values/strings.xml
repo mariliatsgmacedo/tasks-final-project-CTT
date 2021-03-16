@@ -31,4 +31,6 @@
     <string name="button_add_tasks">Adicionar</string>
     <string name="button_start_tasks">Iniciar tarefa</string>
     <string name="button_delete_tasks">Excluir tarefa</string>
+    <string name="todo">A fazer</string>
+    <string name="finish_task">Finalizar tarefa</string>
 </resources>

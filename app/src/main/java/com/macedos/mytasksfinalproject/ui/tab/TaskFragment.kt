@@ -5,10 +5,12 @@ import android.os.Bundle
 import android.view.View
 import com.macedos.mytasksfinalproject.BR
 import com.macedos.mytasksfinalproject.R
+import com.macedos.mytasksfinalproject.config.AppConstants
 import com.macedos.mytasksfinalproject.data.model.Task
 import com.macedos.mytasksfinalproject.databinding.FragmentTaskBinding
 import com.macedos.mytasksfinalproject.ui.adapter.TaskAdapter
 import com.macedos.mytasksfinalproject.ui.base.BaseFragment
+import com.macedos.mytasksfinalproject.ui.details.TaskDetailsActivity
 import com.macedos.mytasksfinalproject.ui.form.TaskFormActivity
 import com.macedos.mytasksfinalproject.utils.MyViewPagerAdapter
 
@@ -42,10 +44,13 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
 
     override fun onResume() {
         super.onResume()
+        viewModel.taskList.value = listOf()
         viewModel.getAllTasks().value?.let {
             updateListFiltered(it)
         }
     }
+
+
 
     private fun updateListFiltered(results: List<Task>) {
         val list = results.filter {
@@ -71,11 +76,18 @@ class TaskFragment(private val status:Int): BaseFragment<FragmentTaskBinding,Tas
     }
 
     override fun onClick(item: Task) {
-
+        startDetailActivity(item)
     }
 
-    private fun startFormActivity(){
+    private fun startFormActivity(task:Task? = null){
         val intent = Intent(requireContext(),TaskFormActivity::class.java)
+        intent.putExtra(AppConstants.KEY_TASK,task)
+        startActivity(intent)
+    }
+
+    private fun startDetailActivity(task:Task){
+        val intent = Intent(requireContext(), TaskDetailsActivity::class.java)
+        intent.putExtra(AppConstants.KEY_TASK,task)
         startActivity(intent)
     }
 
