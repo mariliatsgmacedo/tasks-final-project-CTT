@@ -60,7 +60,9 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_baseline_search_24"/>
+                        android:src="@drawable/ic_baseline_search_24"
+                        android:paddingStart="10dp"
+                        android:paddingLeft="10dp" />
 
                     <EditText
                         android:id="@+id/search_field"
@@ -68,12 +70,12 @@
                         android:layout_height="wrap_content"
                         android:hint="@string/search_tasks_todos"
                         android:layout_marginStart="8dp"
-                        android:layout_marginLeft="8dp" />
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"/>
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
-
-
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/my_view_pager"

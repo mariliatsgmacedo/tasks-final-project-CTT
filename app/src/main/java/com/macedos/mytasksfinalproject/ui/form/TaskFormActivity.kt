@@ -40,7 +40,7 @@ class TaskFormActivity : BaseActivity<ActivityTaskFormBinding, TaskFormViewModel
 //            onBackPressed()
 //        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
+//Button save
         binding.buttonAdd.setOnClickListener {
             task?.let {
                 viewModel.updateTask(it)
@@ -57,9 +57,6 @@ class TaskFormActivity : BaseActivity<ActivityTaskFormBinding, TaskFormViewModel
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
-                val intent = Intent()
-                intent.putExtra("task", task)
-                setResult(1, intent)
                 onBackPressed()
             }
         }
